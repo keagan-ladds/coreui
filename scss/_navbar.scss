@@ -9,12 +9,13 @@
 
   .navbar-brand {
     display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     width: $navbar-brand-width;
     height: $navbar-height;
     padding: 0;
     margin-right: 0;
+    color: #f00;
     background-color: $navbar-brand-bg;
     @include borders($navbar-brand-border);
 
@@ -55,6 +56,7 @@
     .nav-link {
       padding-top: 0;
       padding-bottom: 0;
+      font-weight: 400;
       background: 0;
       border: 0;
 

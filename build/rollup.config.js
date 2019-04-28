@@ -9,7 +9,7 @@ const pkg     = require(path.resolve(__dirname, '../package.json'))
 const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
-let fileDest  = 'coreui.js'
+let fileDest  = 'stargazer.js'
 const external = ['jquery', 'perfect-scrollbar']
 const plugins = [
   resolve(),
@@ -30,7 +30,7 @@ const globals = {
 }
 
 if (BUNDLE) {
-  fileDest = 'coreui.bundle.js'
+  fileDest = 'stargazer.bundle.js'
   // Remove last entry in external array to bundle Popper
   external.pop()
   plugins.push(resolve())
@@ -40,7 +40,7 @@ module.exports = {
   input: path.resolve(__dirname, '../js/src/index.js'),
   output: {
     banner: `/*!
-  * CoreUI v${pkg.version} (${pkg.homepage})
+  * Stargazer v${pkg.version} (${pkg.homepage})
   * Copyright ${year} ${pkg.author.name}
   * Licensed under MIT (${pkg.homepage})
   */`,

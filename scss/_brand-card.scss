@@ -12,7 +12,14 @@
   background-color: $card-bg;
   background-clip: border-box;
   border: $card-border-width solid $card-border-color;
+  box-shadow: $card-box-shadow;
   @include border-radius($card-border-radius);
+
+  @each $color, $value in $brands-colors {
+    &.bg-#{$color} {
+    border-color: $color;
+    }
+  }
 }
 
 .brand-card-header {

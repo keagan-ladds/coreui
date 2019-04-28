@@ -5,6 +5,13 @@
   padding: $sidebar-padding;
   color: $sidebar-color;
   background: $sidebar-bg;
+  background-image: url("../image/sidebar-bg-default.jpg");
+  background-size: cover;
+  box-shadow: $sidebar-shadow;
+
+  
+  transition: background-image 1.5s ease-in;
+
   @include borders($sidebar-borders);
 
   .sidebar-close {
@@ -25,8 +32,36 @@
     }
   }
 
-  // Will be added soon
-  // .sidebar-brand { }
+  .sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: $navbar-brand-width;
+    height: $navbar-height;
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    padding-left: 12px;
+    padding-right: 1rem;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: $sidebar-brand-color;
+    background-color: rgba($sidebar-bg, $sidebar-alpha);
+    z-index: 10;
+    &:hover {
+      text-decoration: none;
+    }
+    .sidebar-brand-minimized {
+      display: none;
+    }
+
+    .brand-icon {
+      display: inline-block;
+      margin: 0 $sidebar-nav-link-padding-x 0 0;
+      font-size: 24px;
+      color: $sidebar-brand-accent;
+      text-align: center;
+    }
+  }
 
   .sidebar-header {
     flex: 0 0 $sidebar-header-height;
@@ -50,6 +85,7 @@
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
+    background: rgba($sidebar-bg, $sidebar-alpha);
     @include sidebar-width($sidebar-borders, $sidebar-width);
   }
 
@@ -62,10 +98,9 @@
 
   .nav-title {
     padding: $sidebar-nav-title-padding-y $sidebar-nav-title-padding-x;
-    font-size: 80%;
-    font-weight: 700;
+    font-size: .75rem;
     color: $sidebar-nav-title-color;
-    text-transform: uppercase;
+    text-transform: none;
   }
 
   .nav-divider {
@@ -76,6 +111,9 @@
     position: relative;
     margin: 0;
     transition: background .3s ease-in-out;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
   }
 
   .nav-dropdown-items {
@@ -94,6 +132,8 @@
   .nav-link {
     display: block;
     padding: $sidebar-nav-link-padding-y $sidebar-nav-link-padding-x;
+    padding-left: 1rem;
+    font-weight: 400;
     color: $sidebar-nav-link-color;
     text-decoration: none;
     background: $sidebar-nav-link-bg;
@@ -102,13 +142,17 @@
       border-radius: $border-radius;
     }
 
+    .nav-text {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
     .nav-icon {
       display: inline-block;
-      width: ($font-size-base * 1.25);
-      margin: 0 ($sidebar-nav-link-padding-x / 2) 0 0;
-      font-size: $font-size-base;
+      margin: 0 ($sidebar-nav-link-padding-x) 0 0;
       color: $sidebar-nav-link-icon-color;
       text-align: center;
+      font-size: 18px;
     }
 
     .badge {
@@ -118,7 +162,7 @@
 
     &.active {
       color: $sidebar-nav-link-active-color;
-      background: $sidebar-nav-link-active-bg;
+      background: rgba($sidebar-nav-link-active-bg, $sidebar-alpha);
       @include borders($sidebar-nav-link-active-borders);
 
       .nav-icon {
@@ -128,7 +172,7 @@
 
     &:hover {
       color: $sidebar-nav-link-hover-color;
-      background: $sidebar-nav-link-hover-bg;
+      background-color: rgba($sidebar-nav-link-hover-bg, $sidebar-alpha);
       @include borders($sidebar-nav-link-hover-borders);
 
       .nav-icon {
@@ -278,7 +322,7 @@
     position: relative;
     flex: 0 0 $sidebar-minimizer-height;
     cursor: pointer;
-    background-color: $sidebar-minimizer-bg;
+    background-color: darken($sidebar-bg, 5%);
     border: 0;
     @include borders($sidebar-minimizer-borders);
 
@@ -411,7 +455,6 @@
         &:hover {
           width: $sidebar-width + $sidebar-minimized-width;
           overflow: visible;
-
           > .nav-link {
             background: $sidebar-nav-link-hover-bg;
 
@@ -467,6 +510,7 @@
         &:hover {
           width: $sidebar-width + $sidebar-minimized-width;
           background: $sidebar-nav-link-hover-bg;
+          border: 1px solid darken($sidebar-nav-link-hover-bg, 12.5%);
 
           .badge {
             display: inline;
@@ -502,6 +546,16 @@
             left: $sidebar-minimized-width;
             display: inline;
           }
+        }
+      }
+    }
+  }
+
+  .brand-minimized {
+    .sidebar {
+      .sidebar-brand {
+        .brand-full {
+          display: none;
         }
       }
     }

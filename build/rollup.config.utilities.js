@@ -9,7 +9,7 @@ const pkg     = require(path.resolve(__dirname, '../package.json'))
 const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
-let fileDest  = 'coreui-utilities.js'
+let fileDest  = 'stargazer-utilities.js'
 const plugins = [
   resolve(),
   commonjs(),
@@ -33,7 +33,7 @@ export default {
   input: path.resolve(__dirname, '../js/src/utilities/index.js'),
   output: {
     banner: `/*!
-  * CoreUI v${pkg.version} (${pkg.homepage})
+  * Stargazer v${pkg.version} (${pkg.homepage})
   * Copyright ${year} ${pkg.author.name}
   * Licensed under MIT (${pkg.homepage})
   */`,

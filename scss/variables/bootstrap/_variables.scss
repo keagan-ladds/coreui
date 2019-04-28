@@ -11,7 +11,7 @@ $enable-transitions:              true !default;
 //
 // Settings for the `<body>` element.
 
-$body-bg:                         #e4e5e6 !default;
+$body-bg:                         #f5f9fc !default;
 
 // Components
 //
@@ -22,8 +22,12 @@ $border-color:                    $gray-300 !default;
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
-
+// Nunito Sans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif
 $font-size-base:                  .875rem !default;
+$font-family-sans-serif: "Nunito Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
 
 // Breadcrumbs
 
@@ -33,8 +37,9 @@ $breadcrumb-border-radius:        0 !default;
 
 // Cards
 
-$card-border-color:               $gray-300 !default;
+$card-border-color:               $secondary !default;
 $card-cap-bg:                     $gray-100 !default;
+$card-box-shadow:                 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
 // Dropdowns
 
@@ -60,3 +65,8 @@ $table-bg-hover:                  $gray-100 !default;
 $input-group-addon-bg:            $gray-100 !default;
 $input-border-color:              $gray-200 !default;
 $input-group-addon-border-color:  $gray-200 !default;
+
+// Borders
+$border-radius-base:        .2rem !default;
+$border-radius-large:       .2rem !default;
+$border-radius-small:       .2rem !default;
